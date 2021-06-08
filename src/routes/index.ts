@@ -12,6 +12,9 @@ const Modals = lazy(() => import("../pages/Modals"));
 const Tables = lazy(() => import("../pages/Tables"));
 const Page404 = lazy(() => import("../pages/404"));
 const Blank = lazy(() => import("../pages/Blank"));
+
+const Clients = lazy(() => import("../pages/clients"));
+
 /**
  * ⚠ These are internal routes!
  * They will be rendered inside the app, using the default `containers/Layout`.
@@ -25,11 +28,15 @@ const Blank = lazy(() => import("../pages/Blank"));
 
 const routes: Array<{
   path: string;
-  component: React.LazyExoticComponent<() => JSX.Element>;
+  component: any;
 }> = [
   {
     path: "/dashboard",
     component: Dashboard,
+  },
+  {
+    path: "/clients",
+    component: Clients,
   },
   {
     path: "/forms",
