@@ -46,6 +46,8 @@ export const AddClientModal: FunctionComponent<Props> = ({
     });
   };
 
+  useEffect(() => updateClient({} as Models.Client), [isOpen]);
+
   return (
     <Modal isOpen={isOpen} onClose={closeModal}>
       <ModalHeader>Add a new Client</ModalHeader>

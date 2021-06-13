@@ -37,3 +37,16 @@ export async function Update(client: Models.Client): Promise<boolean> {
 
   return Promise.resolve(!!data);
 }
+
+export async function Delete(client: Models.Client): Promise<boolean> {
+  const { data, error } = await apiClient
+    .from("client")
+    .delete()
+    .eq("id", client.id);
+
+  if (error) {
+    throw error;
+  }
+
+  return Promise.resolve(!!data);
+}

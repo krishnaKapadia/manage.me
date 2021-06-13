@@ -15,11 +15,14 @@ import { ClientTable } from "./components/table";
 const Clients: FunctionComponent = () => {
   const [isAddModalOpen, setAddModalOpen] = useState(false);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setDeleteModelOpen] = useState(false);
 
   const [editableClient, setEditableClient] =
     useState<Models.Client>(undefined);
+  const [deletableClient, setDeletableClient] =
+    useState<Models.Client>(undefined);
 
-  const { data, isLoading } = useQuery("clients", Client.Retrieve);
+  const { data, isLoading, refetch } = useQuery("clients", Client.Retrieve);
 
   return (
     <>
@@ -39,24 +42,44 @@ const Clients: FunctionComponent = () => {
         <>
           <ClientTable
             data={data}
-            edit={(c) => {
+            editFunc={(c) => {
               setEditableClient(c);
               setEditModalOpen(true);
+            }}
+            deleteFunc={(c) => {
+              setDeletableClient(c);
+              setDeleteModelOpen(true);
             }}
           />
 
           <Modals.AddClientModal
-            closeModal={() => setAddModalOpen(!isAddModalOpen)}
+            closeModal={() => {
+              setAddModalOpen(!isAddModalOpen);
+              refetch();
+            }}
             isOpen={isAddModalOpen}
           />
+
           {editableClient && (
             <Modals.EditClientModal
               closeModal={() => {
                 setEditableClient(undefined);
                 setEditModalOpen(!isEditModalOpen);
+                refetch();
               }}
               editableClient={editableClient}
               isOpen={isEditModalOpen}
+            />
+          )}
+
+          {deletableClient && (
+            <Modals.DeleteClientModal
+              closeModal={() => {
+                setDeleteModelOpen(!isDeleteModalOpen);
+                refetch();
+              }}
+              isOpen={isDeleteModalOpen}
+              client={deletableClient}
             />
           )}
         </>
