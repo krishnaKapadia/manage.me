@@ -31,6 +31,11 @@ const routes: Array<RouteData> = [
     name: "Clients",
   },
   {
+    path: "/app/orders",
+    icon: "PagesIcon",
+    name: "Orders",
+  },
+  {
     path: "/app/forms",
     icon: "FormsIcon",
     name: "Forms",

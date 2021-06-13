@@ -14,6 +14,7 @@ const Page404 = lazy(() => import("../pages/404"));
 const Blank = lazy(() => import("../pages/Blank"));
 
 const Clients = lazy(() => import("../pages/clients"));
+const Orders = lazy(() => import("../pages/orders"));
 
 /**
  * ⚠ These are internal routes!
@@ -37,6 +38,10 @@ const routes: Array<{
   {
     path: "/clients",
     component: Clients,
+  },
+  {
+    path: "/orders",
+    component: Orders,
   },
   {
     path: "/forms",
