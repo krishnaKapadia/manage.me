@@ -3,6 +3,7 @@
 import React, { Suspense } from "react";
 import { Windmill } from "@windmill/react-ui";
 import ReactDOM from "react-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import App from "./App";
 import "./assets/css/tailwind.output.css";
@@ -14,13 +15,17 @@ import { SidebarProvider } from "./context/SidebarContext";
 //   axe(React, ReactDOM, 1000)
 // }
 
+const queryClient = new QueryClient();
+
 ReactDOM.render(
   <SidebarProvider>
-    <Suspense fallback={<ThemedSuspense />}>
-      <Windmill usePreferences>
-        <App />
-      </Windmill>
-    </Suspense>
+    <QueryClientProvider client={queryClient}>
+      <Suspense fallback={<ThemedSuspense />}>
+        <Windmill usePreferences>
+          <App />
+        </Windmill>
+      </Suspense>
+    </QueryClientProvider>
   </SidebarProvider>,
   document.getElementById("root")
 );
