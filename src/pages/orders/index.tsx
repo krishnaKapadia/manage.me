@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import PageTitle from "../../components/Typography/PageTitle";
 import { PlusIcon, OutlineCogIcon } from "../../icons";
+import { OrdersTable } from "./components/table";
 
 const Orders: FunctionComponent = () => {
   return (
@@ -23,6 +24,7 @@ const Orders: FunctionComponent = () => {
           tag={Link}
         ></Button>
       </div>
+      <OrdersTable />
     </>
   );
 };
