@@ -15,6 +15,8 @@ const Blank = lazy(() => import("../pages/Blank"));
 
 const Clients = lazy(() => import("../pages/clients"));
 const Orders = lazy(() => import("../pages/orders"));
+const Entity = lazy(() => import("../pages/entities"));
+const CreateEntity = lazy(() => import("../pages/entities/create"));
 
 /**
  * ⚠ These are internal routes!
@@ -42,6 +44,14 @@ const routes: Array<{
   {
     path: "/orders",
     component: Orders,
+  },
+  {
+    path: "/entities",
+    component: Entity,
+  },
+  {
+    path: "/entities/create",
+    component: CreateEntity,
   },
   {
     path: "/forms",
