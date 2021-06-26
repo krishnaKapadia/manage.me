@@ -1,6 +1,7 @@
 /** @format */
 
-const OrderDef = {
-  name: undefined,
-  date: undefined,
+export type Order = {
+  id: string;
+  workspaceId: string;
+  createdOn: Date;
 };

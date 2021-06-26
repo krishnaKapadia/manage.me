@@ -1,14 +1,18 @@
 /** @format */
 
+import ReactDOM from "react-dom";
 import React, { Suspense } from "react";
 import { Windmill } from "@windmill/react-ui";
-import ReactDOM from "react-dom";
+import "react-select-plus/dist/react-select-plus.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 
+import "./api/init";
 import App from "./App";
-import "./assets/css/tailwind.output.css";
-import ThemedSuspense from "./components/ThemedSuspense";
-import { SidebarProvider } from "./context/SidebarContext";
+import "./app/assets/css/global.css";
+import "./app/assets/css/tailwind.output.css";
+
+import ThemedSuspense from "./app/components/ThemedSuspense";
+import { SidebarProvider } from "./app/context/SidebarContext";
 
 // if (process.env.NODE_ENV !== 'production') {
 //   const axe = require('react-axe')

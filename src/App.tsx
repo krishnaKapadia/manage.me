@@ -8,12 +8,12 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import AccessibleNavigationAnnouncer from "./components/AccessibleNavigationAnnouncer";
+import AccessibleNavigationAnnouncer from "./app/components/AccessibleNavigationAnnouncer";
 
-const Layout = lazy(() => import("./containers/Layout"));
-const Login = lazy(() => import("./pages/Login"));
-const CreateAccount = lazy(() => import("./pages/CreateAccount"));
-const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
+const Layout = lazy(() => import("./app/containers/Layout"));
+const Login = lazy(() => import("./app/pages/Login"));
+const CreateAccount = lazy(() => import("./app/pages/CreateAccount"));
+const ForgotPassword = lazy(() => import("./app/pages/ForgotPassword"));
 
 function App() {
   return (

@@ -1,6 +1,8 @@
 /** @format */
 
 import "./init";
-import * as Client from "./client";
 
-export { Client };
+import * as Client from "./client";
+import * as Order from "./order";
+
+export { Client, Order };

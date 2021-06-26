@@ -1,0 +1,16 @@
+.divider {
+  margin: 24px auto;
+  width: 100%;
+  background: #d1d8e0;
+  height: 2px;
+}
+
+.overflow-elipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+button:focus {
+  outline: none !important;
+}
