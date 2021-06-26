@@ -1,7 +1,22 @@
 /** @format */
 
+import { Client } from "./client";
+
+export type OrderItem = {
+  quantity: number;
+  description: string;
+  unitCost: number;
+};
+
 export type Order = {
-  id: string;
+  id: number;
   workspaceId: string;
-  createdOn: Date;
+
+  clientId?: string;
+
+  tags: string[];
+  items: OrderItem[];
+  notes: string;
+
+  createdOn?: Date;
 };

@@ -21,6 +21,9 @@ type Option = {
 type Props = {
   defaultOptions: Option[];
   onChange: (e: Option[]) => void;
+  placeholder?: string;
+
+  multiSelect?: boolean;
 };
 
 export default class CreatableAdvanced extends React.Component<Props> {
@@ -32,6 +35,7 @@ export default class CreatableAdvanced extends React.Component<Props> {
   };
 
   handleChange = (value: any) => {
+    this.props.onChange(value);
     this.setState({ value });
   };
 
@@ -52,10 +56,11 @@ export default class CreatableAdvanced extends React.Component<Props> {
 
     return (
       <CreatableSelect
-        placeholder="Search tags"
-        isMulti
+        placeholder={this.props.placeholder}
+        isMulti={this.props.multiSelect || false}
         onChange={this.handleChange}
         options={options}
+        {...(this.props.placeholder ? {} : { defaultValue: options[0] })}
       />
     );
   }
